@@ -10,9 +10,7 @@ window.en = {
     'company_name': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
     
     // Hero Section
-    'hero_title_line1': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
-    // 'hero_title_line1': 'KONG NAN INTERNATIONAL',
-    // 'hero_title_line2': 'TRAVEL COMPANY LIMITED',
+    'hero_title_line': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
     'hero_subtitle': 'Luxury Alphard Custom Charter Service',
     'btn_book_now': 'Book Now',
     'btn_learn_more': 'Learn More',
@@ -24,9 +22,9 @@ window.en = {
     'about_core_title': 'Core Business',
     'about_core_desc': 'We have a professional and experienced fleet operations team, dedicated to providing high-quality travel experiences. Our core business is transfer services using the latest Toyota Alphard 40-series 7-seater vehicles, meeting the needs of diverse clients. We provide convenient transfers between airports, hotels, and attractions, ensuring a comfortable journey.',
     'about_maintenance_title': 'Fleet Maintenance Division',
-    'about_maintenance_desc': 'Our own fleet maintenance division, with the parent company Kong Nam Tyre & Auto Products established in 1995, has years of vehicle maintenance experience, providing efficient and reliable vehicle care. We can quickly address vehicle issues, ensuring optimal condition for a superior travel experience.',
-    'about_shop_title': 'Kong Nam Tyre Shopfront',
-    'about_shop_desc': 'Our parent company, Kong Nam Tyre & Auto Products, founded in 1995, has a professional maintenance team and comprehensive facilities, providing full-spectrum care for our luxury fleet.',
+    'about_maintenance_desc': 'Our own fleet maintenance division, with the parent company Kong Nan Tyre & Auto Products established in 1995, has years of vehicle maintenance experience, providing efficient and reliable vehicle care. We can quickly address vehicle issues, ensuring optimal condition for a superior travel experience.',
+    'about_shop_title': 'Kong Nan Tyre Shopfront',
+    'about_shop_desc': 'Our parent company, Kong Nan Tyre & Auto Products, founded in 1995, has a professional maintenance team and comprehensive facilities, providing full-spectrum care for our luxury fleet.',
     'badge_team': 'Professional Maintenance Team',
     'badge_equipment': 'Comprehensive Equipment',
     'badge_experience': 'Years of Experience',
@@ -95,15 +93,35 @@ window.en = {
     'car_feature_6': 'Regular Maintenance',
     'car_feature_6_desc': 'Our vehicles undergo regular professional maintenance to ensure optimal performance and comfort.',
     
-    // Rates Table
-    'table_destination': 'Destination',
-    'table_price': 'Price',
-    'rates_note': 'provides transparent pricing so you can understand service costs in advance',
+    // Rates Section
+    'rates_title': 'Standard Service Rate',
+    'rates_hongkong': 'MACAU TO HONGKONG',
+    'rates_hk_airport': 'HK AIRPORT',
+    'rates_hk_kowloon': 'HK Kowloon',
+    'rates_hk_island': 'HK Island',
+    'rates_comfortable': 'Comfortable',
+    'rates_safety': 'Safety',
+    'rates_timely': 'Timely',
+    'rates_convenience': 'Convenience',
+    'rates_zhuhai': 'MACAU TO ZHUHAI',
+    'rates_zhuhai_airport': 'ZHUHAI AIRPORT',
+    'rates_zhuhai_town': 'ZHUHAI town',
+    'rates_description': 'We redefine luxury transportation with exceptional chauffeur-driven transfer services, ensuring seamless arrival and departure experiences for clients worldwide. Our professional chauffeurs—dressed in immaculate uniforms—deliver safe, punctual, and distinguished service with outstanding driving etiquette. Our fleet of meticulously maintained luxury vehicles, including executive limousines and premium shuttles, guarantees both comfort and sophistication.',
+    'rates_other': 'MACAU TO OTHER AREAS',
+    'rates_shenzhen': 'SHENZHEN',
+    'rates_guangzhou': 'GUANGZHOU',
+    
+    // Advantages Section
     'advantages_title': 'Our Advantages',
     'advantage1': 'Extensive Fleet with Full Compliance',
     'advantage2': 'Trilingual and Professional Management Team',
     'advantage3': 'In-House Vehicle Maintenance Facilities',
     'advantage4': 'Comprehensive Insurance Coverage',
+
+    // Rates Table
+    'table_destination': 'Destination',
+    'table_price': 'Price',
+    'rates_note': 'provides transparent pricing so you can understand service costs in advance',
     
     // Contact
     'contact_title': 'Contact Us',

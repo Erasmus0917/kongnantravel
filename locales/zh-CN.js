@@ -10,9 +10,7 @@ window.zhCN = {
     'company_name': '江南国际旅行社有限公司',
     
     // Hero Section
-    'hero_title_line1': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
-    // 'hero_title_line1': 'KONG NAN INTERNATIONAL',
-    // 'hero_title_line2': 'TRAVEL COMPANY LIMITED',
+    'hero_title_line': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
     'hero_subtitle': '豪华阿尔法订制包车服务',
     'btn_book_now': '立即预约',
     'btn_learn_more': '了解更多',
@@ -95,15 +93,37 @@ window.zhCN = {
     'car_feature_6': '定期维护保养',
     'car_feature_6_desc': '我们的车辆定期进行专业维护，确保最佳性能和舒适度。',
     
+    // Rates Section
+    'rates_title': '标准服务价格',
+    'rates_hongkong': '澳门至香港',
+    'rates_hk_airport': '香港机场',
+    'rates_hk_kowloon': '香港九龙',
+    'rates_hk_island': '香港岛',
+    'rates_comfortable': '舒适',
+    'rates_safety': '安全',
+    'rates_timely': '准时',
+    'rates_convenience': '便利',
+    'rates_zhuhai': '澳门至珠海',
+    'rates_zhuhai_airport': '珠海机场',
+    'rates_zhuhai_town': '珠海市区',
+    'rates_description': '我们重新定义豪华交通服务，提供卓越的专业司机接送体验，确保全球客户无缝抵达与离开。我们的专业司机穿着整洁制服，以出色的驾驶礼仪提供安全、准时且尊荣的服务。我们的车队由精心维护的豪华车辆组成，包括行政豪华轿车和高級接驳车，保证舒适与尊荣。',
+    'rates_other': '澳门至其他地区',
+    'rates_shenzhen': '深圳',
+    'rates_guangzhou': '广州',
+    
+    // Advantages Section - 簡體中文
+    'advantage1': '庞大车队・合法合规',
+    'advantage2': '三语专业管理团队',
+    'advantage3': '自设车辆维修厂',
+    'advantage4': '全面保险保障',
+    
+    // Advantages Title
+    'advantages_title': '我们的优势',
+
     // Rates Table
     'table_destination': '目的地',
     'table_price': '价格',
     'rates_note': '提供透明的价格，让您提前了解服务费用',
-    'advantages_title': '我们的优势',
-    'advantage1': 'Extensive Fleet with Full Compliance',
-    'advantage2': 'Trilingual and Professional Management Team',
-    'advantage3': 'In-House Vehicle Maintenance Facilities',
-    'advantage4': 'Comprehensive Insurance Coverage',
     
     // Contact
     'contact_title': '联系我们',

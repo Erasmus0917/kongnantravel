@@ -1,5 +1,5 @@
 // 語言切換核心模組（支援繁體中文、簡體中文、英文）
-let currentLang = 'zh-TW';
+let currentLang = 'en';
 let translations = {};
 
 // 語言設定
@@ -32,13 +32,13 @@ function loadLanguage(lang) {
             reject(new Error('不支援的語言'));
             return;
         }
-        
+
         // 移除已存在的同類型 script
         const existingScript = document.querySelector(`script[data-lang="${lang}"]`);
         if (existingScript) {
             existingScript.remove();
         }
-        
+
         const script = document.createElement('script');
         script.src = config.file;
         script.dataset.lang = lang;
@@ -56,9 +56,9 @@ function loadLanguage(lang) {
 
 // 更新頁面語言
 function updatePageLanguage() {
-    if (currentLang === 'zh-TW') {
-        // 繁體中文模式：恢復原始內容
-        restoreChinese();
+    if (lang === 'en') {
+        currentLang = 'en';
+        restoreDefaultLanguage();  // 恢復為預設英文
     } else {
         // 簡體中文或英文模式：套用翻譯
         applyTranslations();
@@ -70,7 +70,7 @@ function updatePageLanguage() {
 // 套用翻譯
 function applyTranslations() {
     if (!translations) return;
-    
+
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -78,7 +78,7 @@ function applyTranslations() {
             element.textContent = translations[key];
         }
     });
-    
+
     // 更新頁面標題
     if (translations['page_title']) {
         document.title = translations['page_title'];
@@ -95,14 +95,14 @@ function updateLanguageButtonText() {
 }
 
 // 恢復繁體中文（將元素恢復為 HTML 原始內容）
-function restoreChinese() {
+function restoreDefaultLanguage() {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         if (element.hasAttribute('data-original')) {
             element.textContent = element.getAttribute('data-original');
         }
     });
-    document.title = '江南國際旅行社有限公司 - 豪華阿爾法訂製包車服務';
+    document.title = 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED - Luxury Alphard Custom Charter Service';
 }
 
 // 關閉所有下拉選單
@@ -116,15 +116,16 @@ function closeDropdowns() {
 // 切換語言
 async function setLanguage(lang) {
     if (lang === currentLang) return;
-    
+
     const loader = document.getElementById('lang-loader');
     if (loader) loader.style.display = 'inline-block';
-    
+
     try {
-        if (lang === 'zh-TW') {
-            currentLang = 'zh-TW';
-            restoreChinese();
-        } else {
+        if (lang === 'en') {
+            currentLang = 'en';
+            restoreDefaultLanguage();  // 恢復為預設英文
+        }
+        else {
             if (!translations || currentLang !== lang) {
                 await loadLanguage(lang);
             }
@@ -157,31 +158,31 @@ function bindEvents() {
     const dropdownBtn = document.getElementById('lang-dropdown-btn');
     const dropdownMenu = document.getElementById('lang-dropdown-menu');
     if (dropdownBtn && dropdownMenu) {
-        dropdownBtn.addEventListener('click', (e) => { 
-            e.stopPropagation(); 
-            dropdownMenu.classList.toggle('hidden'); 
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
         });
     }
-    
+
     // 手機版下拉選單
     const mobileDropdownBtn = document.getElementById('mobile-lang-dropdown-btn');
     const mobileDropdownMenu = document.getElementById('mobile-lang-dropdown-menu');
     if (mobileDropdownBtn && mobileDropdownMenu) {
-        mobileDropdownBtn.addEventListener('click', (e) => { 
-            e.stopPropagation(); 
-            mobileDropdownMenu.classList.toggle('hidden'); 
+        mobileDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileDropdownMenu.classList.toggle('hidden');
         });
     }
-    
+
     // 語言選項
     document.querySelectorAll('.lang-option, .mobile-lang-option').forEach(option => {
-        option.addEventListener('click', async (e) => { 
-            e.stopPropagation(); 
+        option.addEventListener('click', async (e) => {
+            e.stopPropagation();
             const lang = option.getAttribute('data-lang');
             await setLanguage(lang);
         });
     });
-    
+
     // 點擊外部關閉
     document.addEventListener('click', (e) => {
         if (dropdownBtn && !dropdownBtn.contains(e.target) && dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
@@ -191,7 +192,7 @@ function bindEvents() {
             mobileDropdownMenu.classList.add('hidden');
         }
     });
-    
+
     // 手機選單按鈕
     const mobileMenuBtn = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -204,16 +205,15 @@ function bindEvents() {
 async function init() {
     storeOriginalContent();
     bindEvents();
-    
+
     const savedLang = localStorage.getItem('preferred_language');
-    if (savedLang === 'en') {
-        await setLanguage('en');
+    if (savedLang === 'zh-TW') {
+        await setLanguage('zh-TW');
     } else if (savedLang === 'zh-CN') {
         await setLanguage('zh-CN');
     } else {
-        currentLang = 'zh-TW';
-        updateLanguageButtonText();
-        document.documentElement.lang = 'zh';
+        // 預設為英文
+        await setLanguage('en');
     }
 }
 

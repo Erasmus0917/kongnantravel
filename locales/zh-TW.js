@@ -10,9 +10,7 @@ window.zhTW = {
     'company_name': '江南國際旅行社有限公司',
     
     // Hero 區塊
-    'hero_title_line1': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
-    // 'hero_title_line1': 'KONG NAN INTERNATIONAL',
-    // 'hero_title_line2': 'TRAVEL COMPANY LIMITED',
+    'hero_title_line': 'KONG NAN INTERNATIONAL TRAVEL COMPANY LIMITED',
     'hero_subtitle': '豪華阿爾法訂製包車服務',
     'btn_book_now': '立即預約',
     'btn_learn_more': '了解更多',
@@ -79,15 +77,37 @@ window.zhTW = {
     'gallery_caption2_desc': '舒適寬敞的高級真皮座椅',
     'gallery_caption3': '機場接送服務',
     'gallery_caption3_desc': '專業司機提供尊榮接送體驗',
+
+    // Rates Section
+    'rates_title': '標準服務價格',
+    'rates_hongkong': '澳門至香港',
+    'rates_hk_airport': '香港機場',
+    'rates_hk_kowloon': '香港九龍',
+    'rates_hk_island': '香港島',
+    'rates_comfortable': '舒適',
+    'rates_safety': '安全',
+    'rates_timely': '準時',
+    'rates_convenience': '便利',
+    'rates_zhuhai': '澳門至珠海',
+    'rates_zhuhai_airport': '珠海機場',
+    'rates_zhuhai_town': '珠海市區',
+    'rates_description': '我們重新定義豪華交通服務，提供卓越的專業司機接送體驗，確保全球客戶無縫抵達與離開。我們的專業司機穿著整潔制服，以出色的駕駛禮儀提供安全、準時且尊榮的服務。我們的車隊由精心維護的豪華車輛組成，包括行政豪華轎車和高級接駁車，保證舒適與尊榮。',
+    'rates_other': '澳門至其他地區',
+    'rates_shenzhen': '深圳',
+    'rates_guangzhou': '廣州',
+    
+    // Advantages Section - 繁體中文
+    'advantage1': '龐大車隊・合法合規',
+    'advantage2': '三語專業管理團隊',
+    'advantage3': '自設車輛維修廠',
+    'advantage4': '全面保險保障',
+    
+    // Advantages Title
+    'advantages_title': '我們的優勢',
     
     // 價格表格
     'table_destination': '目的地',
     'table_price': '價格',
-    'advantages_title': '我們的優勢',
-    'advantage1': 'Extensive Fleet with Full Compliance',
-    'advantage2': 'Trilingual and Professional Management Team',
-    'advantage3': 'In-House Vehicle Maintenance Facilities',
-    'advantage4': 'Comprehensive Insurance Coverage',
     
     // 聯絡我們
     'contact_title': '聯絡我們',
@@ -118,10 +138,4 @@ window.zhTW = {
     
     // 服務價格區塊額外文字
     'rates_note': '提供透明的價格，讓您提前了解服務費用',
-    
-    // 英文保留文字 (優勢區塊維持英文)
-    'advantage1_en': 'Extensive Fleet with Full Compliance',
-    'advantage2_en': 'Trilingual and Professional Management Team',
-    'advantage3_en': 'In-House Vehicle Maintenance Facilities',
-    'advantage4_en': 'Comprehensive Insurance Coverage'
 };
