@@ -2,36 +2,34 @@
 let currentLang = 'en';
 let translations = {};
 
-// 語言設定
+// 語言設定 - ✅ 使用絕對路徑
 const langConfig = {
     'zh-TW': {
-        file: 'locales/zh-TW.js',
+        file: '/locales/zh-TW.js',
         varName: 'zhTW',
         label: '中文',
         flag: '🇹🇼'
     },
     'zh-CN': {
-        file: 'locales/zh-CN.js',
+        file: '/locales/zh-CN.js',
         varName: 'zhCN',
         label: '简体',
         flag: '🇨🇳'
     },
     'en': {
-        file: 'locales/en.js',
+        file: '/locales/en.js',
         varName: 'en',
         label: 'English',
         flag: '🇬🇧'
     }
 };
 
-// ✅ 新增：從 URL 路徑偵測語系
+// 從 URL 路徑偵測語系
 function detectLanguageFromURL() {
     const path = window.location.pathname;
-    // 如果路徑是 /zh/ 或 /zh/index.html，使用繁體中文
     if (path.includes('/zh/')) {
         return 'zh-TW';
     }
-    // 預設英文
     return 'en';
 }
 
@@ -65,7 +63,7 @@ function loadLanguage(lang) {
     });
 }
 
-// ✅ 修改：根據當前語系決定是否套用翻譯
+// 根據當前語系決定是否套用翻譯
 function updatePageLanguage() {
     if (currentLang === 'en') {
         restoreDefaultLanguage();
@@ -122,7 +120,7 @@ function closeDropdowns() {
     if (mobileDropdownMenu) mobileDropdownMenu.classList.add('hidden');
 }
 
-// ✅ 修改：切換語言時同時改變 URL
+// 切換語言時同時改變 URL
 async function setLanguage(lang) {
     if (lang === currentLang) return;
 
@@ -219,7 +217,7 @@ function bindEvents() {
     }
 }
 
-// ✅ 修改：初始化時根據 URL 設定語系
+// 初始化時根據 URL 設定語系
 async function init() {
     storeOriginalContent();
     bindEvents();
