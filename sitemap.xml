@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.kongnantravel.com/</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://www.kongnantravel.com/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.kongnantravel.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.kongnantravel.com/"/>
+    </url>
+    <url>
+        <loc>https://www.kongnantravel.com/zh/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.kongnantravel.com/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.kongnantravel.com/zh/"/>
+    </url>
 </urlset>

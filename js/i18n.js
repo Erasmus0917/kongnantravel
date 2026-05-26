@@ -24,6 +24,17 @@ const langConfig = {
     }
 };
 
+// ✅ 新增：從 URL 路徑偵測語系
+function detectLanguageFromURL() {
+    const path = window.location.pathname;
+    // 如果路徑是 /zh/ 或 /zh/index.html，使用繁體中文
+    if (path.includes('/zh/')) {
+        return 'zh-TW';
+    }
+    // 預設英文
+    return 'en';
+}
+
 // 載入語系檔案（使用動態 script 方式）
 function loadLanguage(lang) {
     return new Promise((resolve, reject) => {
@@ -54,13 +65,11 @@ function loadLanguage(lang) {
     });
 }
 
-// 更新頁面語言
+// ✅ 修改：根據當前語系決定是否套用翻譯
 function updatePageLanguage() {
-    if (lang === 'en') {
-        currentLang = 'en';
-        restoreDefaultLanguage();  // 恢復為預設英文
+    if (currentLang === 'en') {
+        restoreDefaultLanguage();
     } else {
-        // 簡體中文或英文模式：套用翻譯
         applyTranslations();
     }
     updateLanguageButtonText();
@@ -89,12 +98,12 @@ function applyTranslations() {
 function updateLanguageButtonText() {
     const currentLangText = document.getElementById('current-lang-text');
     const mobileCurrentLangText = document.getElementById('mobile-current-lang-text');
-    const label = langConfig[currentLang]?.label || '中文';
+    const label = langConfig[currentLang]?.label || 'English';
     if (currentLangText) currentLangText.textContent = label;
     if (mobileCurrentLangText) mobileCurrentLangText.textContent = label;
 }
 
-// 恢復繁體中文（將元素恢復為 HTML 原始內容）
+// 恢復預設語言（英文）
 function restoreDefaultLanguage() {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
@@ -113,32 +122,41 @@ function closeDropdowns() {
     if (mobileDropdownMenu) mobileDropdownMenu.classList.add('hidden');
 }
 
-// 切換語言
+// ✅ 修改：切換語言時同時改變 URL
 async function setLanguage(lang) {
     if (lang === currentLang) return;
 
-    const loader = document.getElementById('lang-loader');
-    if (loader) loader.style.display = 'inline-block';
-
-    try {
-        if (lang === 'en') {
-            currentLang = 'en';
-            restoreDefaultLanguage();  // 恢復為預設英文
-        }
-        else {
+    // 如果是切換到英文，導向根目錄
+    if (lang === 'en') {
+        window.location.href = 'https://www.kongnantravel.com/';
+        return;
+    }
+    
+    // 切換到繁體中文，導向 /zh/
+    if (lang === 'zh-TW') {
+        window.location.href = 'https://www.kongnantravel.com/zh/';
+        return;
+    }
+    
+    // 簡體中文暫不獨立頁面，仍用 JS 切換
+    if (lang === 'zh-CN') {
+        const loader = document.getElementById('lang-loader');
+        if (loader) loader.style.display = 'inline-block';
+        
+        try {
             if (!translations || currentLang !== lang) {
                 await loadLanguage(lang);
             }
             currentLang = lang;
             applyTranslations();
+            updateLanguageButtonText();
+            localStorage.setItem('preferred_language', currentLang);
+        } catch (error) {
+            console.error('切換語言失敗:', error);
+        } finally {
+            if (loader) loader.style.display = 'none';
+            closeDropdowns();
         }
-        updateLanguageButtonText();
-        localStorage.setItem('preferred_language', currentLang);
-    } catch (error) {
-        console.error('切換語言失敗:', error);
-    } finally {
-        if (loader) loader.style.display = 'none';
-        closeDropdowns();
     }
 }
 
@@ -201,20 +219,25 @@ function bindEvents() {
     }
 }
 
-// 初始化
+// ✅ 修改：初始化時根據 URL 設定語系
 async function init() {
     storeOriginalContent();
     bindEvents();
 
-    const savedLang = localStorage.getItem('preferred_language');
-    if (savedLang === 'zh-TW') {
-        await setLanguage('zh-TW');
-    } else if (savedLang === 'zh-CN') {
-        await setLanguage('zh-CN');
+    // 根據 URL 路徑決定語系
+    const urlLang = detectLanguageFromURL();
+    
+    if (urlLang === 'zh-TW') {
+        currentLang = 'zh-TW';
+        await loadLanguage('zh-TW');
+        applyTranslations();
     } else {
-        // 預設為英文
-        await setLanguage('en');
+        currentLang = 'en';
+        // 英文版不需要載入翻譯
     }
+    
+    updateLanguageButtonText();
+    document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh';
 }
 
 // 啟動

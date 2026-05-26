@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
+Allow: /zh/
 Sitemap: https://www.kongnantravel.com/sitemap.xml
